@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "922832744477",
+    "firebase_url": "https://extreme-water-233814.firebaseio.com",
+    "project_id": "extreme-water-233814",
+    "storage_bucket": "extreme-water-233814.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922832744477:android:40965c4e45959963a156f4",
+        "android_client_info": {
+          "package_name": "com.hashtechtauch.kuman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922832744477-p8rmiqmu15qlb5cebauo4vfg90s5h7ss.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV5NH5BFfV4FY6gFU5mevAPsiHKVascRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922832744477-p8rmiqmu15qlb5cebauo4vfg90s5h7ss.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
