@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Kuman</string>
+    <string name="facebook_app_id">713569766065250</string>
+    <string name="fb_login_protocol_scheme">fb713569766065250</string>
 </resources>
