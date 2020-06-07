@@ -1,395 +1,390 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
+    <TextView
+        android:id="@+id/tvUserSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="402dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="User Settings"
+        android:textColor="@color/TextColor"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/ic_account_circle_white_84dp"
+            app:layout_constraintBottom_toTopOf="@id/tvName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backBtn" />
+
         <TextView
-            android:id="@+id/tvUserSettings"
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Kanon Kanade"
+            android:textAlignment="center"
+            android:textColor="@color/White"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profilePicture" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="86dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="kanonkanade@naver.jp"
+            android:textAlignment="center"
+            android:textColor="@color/White"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fbLogo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/fb_logo"
+            app:layout_constraintBottom_toTopOf="@id/tvName"
+            app:layout_constraintEnd_toEndOf="@id/profilePicture"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="402dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="User Settings"
-            android:textColor="@color/TextColor"
-            android:textSize="20sp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="336dp"
+            android:layout_marginBottom="236dp"
+            android:background="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/handwashedLayout"
-            android:layout_width="match_parent"
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/handwashedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/layout_bg"
+        android:backgroundTint="@color/colorSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/countLayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="262dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/layout_bg"
-            android:backgroundTint="@color/colorSecondary"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/tvHandWashed">
 
-            <LinearLayout
-                android:id="@+id/countLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvHandWashed">
-
-
-                <TextView
-                    android:id="@+id/counter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="11"
-                    android:textAlignment="center"
-                    android:textColor="@color/White"
-                    android:textSize="38sp" />
-
-                <TextView
-                    android:id="@+id/tvTimes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="6dp"
-                    android:layout_weight="2"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="times"
-                    android:textColor="@color/White"
-                    android:textSize="12sp" />
-            </LinearLayout>
 
             <TextView
-                android:id="@+id/tvHandWashed"
+                android:id="@+id/counter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
+                android:layout_weight="2"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Hand Washed"
-                android:textColor="@color/White"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/countLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/profileLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Kanon Kanade"
+                android:text="11"
                 android:textAlignment="center"
                 android:textColor="@color/White"
-                android:textSize="26sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profilePicture" />
+                android:textSize="38sp" />
 
             <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="match_parent"
+                android:id="@+id/tvTimes"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="86dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="6dp"
+                android:layout_weight="2"
                 android:fontFamily="@font/poppins_regular"
-                android:text="kanonkanade@naver.jp"
-                android:textAlignment="center"
+                android:text="times"
                 android:textColor="@color/White"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvName" />
+                android:textSize="12sp" />
+        </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/fbLogo"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="120dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/fb_logo"
-                app:layout_constraintBottom_toTopOf="@id/tvName"
-                app:layout_constraintEnd_toEndOf="@id/profilePicture"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvHandWashed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Hand Washed"
+            android:textColor="@color/White"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/countLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/backBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="336dp"
-                android:layout_marginBottom="236dp"
-                android:background="@drawable/ic_arrow_left"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/profilePicture"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/ic_account_circle_white_84dp"
-                app:layout_constraintBottom_toTopOf="@id/tvName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/backBtn" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/changeNameBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/layout_bg"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUserSettings">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/changeNameBtn"
+        <TextView
+            android:id="@+id/changeNameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/layout_bg"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="18dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Change Name"
+            android:textColor="@color/TextColor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/changeDisplayNameTv"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/changeNameIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/changeDisplayNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Change your display name"
+            android:textColor="@color/TextColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/changeNameIcon"
+            app:layout_constraintTop_toBottomOf="@id/changeNameTv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/changeNameIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/ic_user"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/changeNameTv"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUserSettings">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/changeNameTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Change Name"
-                android:textColor="@color/TextColor"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/changeDisplayNameTv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/changeNameIcon"
-                app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/changeDisplayNameTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Change your display name"
-                android:textColor="@color/TextColor"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/changeNameIcon"
-                app:layout_constraintTop_toBottomOf="@id/changeNameTv" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/changeLocBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/layout_bg"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/changeNameBtn">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/changeNameIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:background="@drawable/ic_user"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/changeNameTv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/changeLocBtn"
+        <TextView
+            android:id="@+id/changeLocTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/layout_bg"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="18dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Change Location"
+            android:textColor="@color/TextColor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/currLocTv"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/changeLocIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/currLocTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Current Location: "
+            android:textColor="@color/TextColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/changeLocIcon"
+            app:layout_constraintTop_toBottomOf="@id/changeLocTv" />
+
+        <TextView
+            android:id="@+id/LocTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Jakarta Barat, Indonesia"
+            android:textColor="@color/TextColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/currLocTv"
+            app:layout_constraintTop_toBottomOf="@id/changeLocTv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/changeLocIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/ic_map_pin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/changeLocTv"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/changeNameBtn">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/changeLocTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Change Location"
-                android:textColor="@color/TextColor"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/currLocTv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/changeLocIcon"
-                app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/currLocTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Current Location: "
-                android:textColor="@color/TextColor"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/changeLocIcon"
-                app:layout_constraintTop_toBottomOf="@id/changeLocTv" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toggleNotifBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/layout_bg"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/changeLocBtn">
 
-            <TextView
-                android:id="@+id/LocTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Jakarta Barat, Indonesia"
-                android:textColor="@color/TextColor"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/currLocTv"
-                app:layout_constraintTop_toBottomOf="@id/changeLocTv" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/changeLocIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:background="@drawable/ic_map_pin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/changeLocTv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/toggleNotifBtn"
+        <TextView
+            android:id="@+id/toggleNotifTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/layout_bg"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="18dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Toggle Notification Off"
+            android:textColor="@color/TextColor"
+            android:textSize="16sp"
+
+            app:layout_constraintBottom_toTopOf="@id/reminderTv"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/toggleNotifIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/reminderTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Turn off your hand washing reminder"
+            android:textColor="@color/TextColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/toggleNotifIcon"
+            app:layout_constraintTop_toBottomOf="@id/toggleNotifTv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/toggleNotifIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/ic_bell"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/toggleNotifTv"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/changeLocBtn">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/toggleNotifTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Toggle Notification Off"
-                android:textColor="@color/TextColor"
-                android:textSize="16sp"
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                app:layout_constraintBottom_toTopOf="@id/reminderTv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/toggleNotifIcon"
-                app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/removeUserPrefsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/layout_bg"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleNotifBtn">
 
-            <TextView
-                android:id="@+id/reminderTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Turn off your hand washing reminder"
-                android:textColor="@color/TextColor"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/toggleNotifIcon"
-                app:layout_constraintTop_toBottomOf="@id/toggleNotifTv" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/toggleNotifIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:background="@drawable/ic_bell"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/toggleNotifTv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/removeUserPrefsBtn"
+        <TextView
+            android:id="@+id/removeUserPrefsTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/layout_bg"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="18dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Remove user preferences"
+            android:textColor="@color/TextColor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/removeEverythingTv"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/removeUserPrefsIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/removeEverythingTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Remove everything from your account"
+            android:textColor="@color/TextColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/removeUserPrefsIcon"
+            app:layout_constraintTop_toBottomOf="@id/removeUserPrefsTv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/removeUserPrefsIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/ic_trash_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/removeUserPrefsTv"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toggleNotifBtn">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/removeUserPrefsTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Remove user preferences"
-                android:textColor="@color/TextColor"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/removeEverythingTv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/removeUserPrefsIcon"
-                app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/removeEverythingTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Remove everything from your account"
-                android:textColor="@color/TextColor"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/removeUserPrefsIcon"
-                app:layout_constraintTop_toBottomOf="@id/removeUserPrefsTv" />
+</ListView>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/removeUserPrefsIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:background="@drawable/ic_trash_2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/removeUserPrefsTv"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ListView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
