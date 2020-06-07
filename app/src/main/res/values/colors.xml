@@ -9,5 +9,8 @@
     <color name="White">#FFFFFF</color>
     <color name="TextColor">#3C4859</color>
     <color name="Light">#92A0B5</color>
+    <color name="BoxColor">#C4C4C4</color>
+    <color name="BoxTextColor">#6E696B</color>
+    <color name="ButtonTextColor">#D3D3D3</color>
     <color name="colorAccent">#03DAC5</color>
 </resources>
