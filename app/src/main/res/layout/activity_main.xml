@@ -227,6 +227,97 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/middleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/covidLayout"
+        app:layout_constraintBottom_toTopOf="@id/scanLayout">
+
+        <LinearLayout
+            android:id="@+id/scanHandLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/washHandLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/scanHandIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/com_facebook_profile_picture_blank_square"/>
+
+            <TextView
+                android:id="@+id/scanHandTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Scan Hand"
+                android:textColor="@color/BoxTextColor"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/washHandLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/leaderboardLayout"
+            app:layout_constraintStart_toEndOf="@id/scanHandLayout"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/washHandIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/com_facebook_profile_picture_blank_square"/>
+
+            <TextView
+                android:id="@+id/washHandTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Wash Hand"
+                android:textColor="@color/BoxTextColor"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/leaderboardLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/washHandLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/leaderboardIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/com_facebook_profile_picture_blank_square"/>
+
+            <TextView
+                android:id="@+id/leaderboardTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Leaderboard"
+                android:textColor="@color/BoxTextColor"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/scanLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -238,7 +329,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/covidLayout">
+        app:layout_constraintTop_toBottomOf="@id/middleLayout">
 
         <LinearLayout
             android:id="@+id/scanTvLayout"
@@ -278,7 +369,7 @@
                 android:fontFamily="@font/poppins_bold"
                 android:text="Scan Now"
                 android:textColor="@color/ButtonTextColor"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
