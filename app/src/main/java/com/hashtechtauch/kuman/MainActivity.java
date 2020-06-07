@@ -1,4 +1,4 @@
-package com.example.kumanv2;
+package com.hashtechtauch.kuman;
 
 import androidx.appcompat.app.AppCompatActivity;
 
