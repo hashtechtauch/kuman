@@ -79,7 +79,7 @@
             android:id="@+id/covidBoxtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="COVID-19 Update"
+            android:text="Update COVID-19"
             android:fontFamily="@font/poppins_bold"
             android:textSize="20sp"
             android:textColor="@color/BoxTextColor"
