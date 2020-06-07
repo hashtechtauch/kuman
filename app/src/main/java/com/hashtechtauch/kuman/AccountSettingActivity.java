@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
@@ -29,16 +31,17 @@ public class AccountSettingActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_setting);
+
         ImageView accountImage = findViewById(R.id.profilePicture);
         TextView accountName = findViewById(R.id.tvName);
         TextView accountEmail = findViewById(R.id.tvEmail);
 
         TextView counter = findViewById(R.id.counter);
-        Button btn_Back = findViewById(R.id.backBtn);
-        Button btn_Change_Name = findViewById(R.id.changeNameBtn);
-        Button btn_Change_Location = findViewById(R.id.changeLocBtn);
-        Button btn_Toggle_Notification = findViewById(R.id.toggleNotifBtn);
-        Button btn_Remove_SharedPrefence = findViewById(R.id.removeUserPrefsBtn);
+        AppCompatImageView btn_Back = findViewById(R.id.backBtn);
+        ConstraintLayout btn_Change_Name = findViewById(R.id.changeNameBtn);
+        ConstraintLayout btn_Change_Location = findViewById(R.id.changeLocBtn);
+        ConstraintLayout btn_Toggle_Notification = findViewById(R.id.toggleNotifBtn);
+        ConstraintLayout btn_Remove_SharedPrefence = findViewById(R.id.removeUserPrefsBtn);
 
         SharedPreferences sp = getSharedPreferences("Token",MODE_PRIVATE);
         strNama = sp.getString("nama",null);

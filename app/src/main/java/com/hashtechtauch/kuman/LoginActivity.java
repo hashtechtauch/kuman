@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -44,7 +45,7 @@ public class LoginActivity extends AppCompatActivity
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mCallbackManager = CallbackManager.Factory.create();
-        Button login_Facebook = findViewById(R.id.fbSignInBtn);
+        ConstraintLayout login_Facebook = findViewById(R.id.fbSignInBtn);
 
         login_Facebook.setOnClickListener(new View.OnClickListener()
         {
@@ -52,24 +53,27 @@ public class LoginActivity extends AppCompatActivity
             public void onClick(View v) {
                 LoginManager.getInstance().logInWithReadPermissions(LoginActivity.this,
                         Arrays.asList("email", "public_profile"));
-                LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+                LoginManager.getInstance().registerCallback(mCallbackManager, new FacebookCallback<LoginResult>()
+                {
                     @Override
-                    public void onSuccess(LoginResult loginResult) {
+                    public void onSuccess(LoginResult loginResult)
+                    {
                         Log.d(TAG, "facebook:onSuccess:" + loginResult);
                         handleFacebookAccessToken(loginResult.getAccessToken());
                     }
 
                     @Override
-                    public void onCancel() {
+                    public void onCancel()
+                    {
                         Log.d(TAG, "facebook:onCancel");
                         Toast.makeText(LoginActivity.this, "Cancelled", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
-                    public void onError(FacebookException error) {
+                    public void onError(FacebookException error)
+                    {
                         Log.d(TAG, "facebook:onError", error);
                         Toast.makeText(LoginActivity.this, "Error. Please try again later", Toast.LENGTH_LONG).show();
-
                     }
                 });
             }
@@ -79,13 +83,13 @@ public class LoginActivity extends AppCompatActivity
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null)
         {
-            SharedPreferences sp = getSharedPreferences("Token",MODE_PRIVATE);
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putString("nama",user.getDisplayName());
-            editor.putString("email",user.getEmail());
-            editor.putString("gambar",user.getPhotoUrl().toString());
-            editor.putString("id",user.getUid());
-            editor.apply();
+            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+//            i.putExtra("nama",user.getDisplayName());
+//            i.putExtra("email",user.getEmail());
+            i.putExtra("gambar",user.getPhotoUrl().toString());
+//            i.putExtra("id",user.getUid());
+            startActivity(i);
+            finish();
         }
     }
 
@@ -122,11 +126,14 @@ public class LoginActivity extends AppCompatActivity
                             editor.putString("id",user.getUid());
                             editor.apply();
 
-                            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                            startActivity(intent);
+                            // Untuk kirim data ke MainActivity.java
+                            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+//                            i.putExtra("nama",user.getDisplayName());
+//                            i.putExtra("email",user.getEmail());
+                            i.putExtra("gambar",user.getPhotoUrl().toString());
+//                            i.putExtra("id",user.getUid());
+                            startActivity(i);
                             finish();
-
-
                         }
                         else
                         {

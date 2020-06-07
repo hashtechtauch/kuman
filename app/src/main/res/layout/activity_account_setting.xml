@@ -4,13 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
 
         <TextView
             android:id="@+id/tvUserSettings"
@@ -390,6 +384,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ListView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
