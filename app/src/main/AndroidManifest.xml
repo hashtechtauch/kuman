@@ -28,13 +28,16 @@
         </activity>
 
 
+
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".NotificationActivity"/>
         <activity android:name=".PopUpWindowActivity"
             android:theme="@style/AppTheme.CustomTheme">
         </activity>
         <activity android:name=".AccountSettingActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

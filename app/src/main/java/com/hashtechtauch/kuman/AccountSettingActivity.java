@@ -58,7 +58,9 @@ public class AccountSettingActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
+                Intent intent = new Intent(AccountSettingActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
