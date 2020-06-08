@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity
     private String jsonLati, jsonLong, countryCode, link;
     private final static int REQUEST_PLACE_PICKER = 1001;
     SharedPrefs sharedPrefs;
+    Country CountryData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -255,7 +256,7 @@ public class MainActivity extends AppCompatActivity
 
     private void Check(String countryCode) {
         String url = "https://api.covid19api.com/summary";
-        final Country CountryData = new Country();
+        CountryData = new Country();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
