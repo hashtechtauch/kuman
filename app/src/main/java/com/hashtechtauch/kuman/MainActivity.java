@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("Covid", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+        //dari class LoginActivity.java
         strHomeImage = getIntent().getStringExtra("gambar");
         Glide.with(this).load(strHomeImage).into(homeProfilePicture);
 
@@ -85,6 +86,12 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 startActivity(new Intent(MainActivity.this, PopUpWindowActivity.class));
+
+
+
+
+
+
             }
         });
 

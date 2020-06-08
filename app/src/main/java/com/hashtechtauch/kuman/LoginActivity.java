@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity
     private CallbackManager mCallbackManager;
     private static final String TAG = "Authenticate Token";
     private AccessTokenTracker accessTokenTracker;
+    SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -84,10 +85,7 @@ public class LoginActivity extends AppCompatActivity
         if(user != null)
         {
             Intent i = new Intent(LoginActivity.this,MainActivity.class);
-//            i.putExtra("nama",user.getDisplayName());
-//            i.putExtra("email",user.getEmail());
             i.putExtra("gambar",user.getPhotoUrl().toString());
-//            i.putExtra("id",user.getUid());
             startActivity(i);
             finish();
         }
@@ -117,21 +115,19 @@ public class LoginActivity extends AppCompatActivity
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mFirebaseAuth.getCurrentUser();
 
-                            // simpan token di sharedpreferences
-                            SharedPreferences sp = getSharedPreferences("Token",MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sp.edit();
-                            editor.putString("nama",user.getDisplayName());
-                            editor.putString("email",user.getEmail());
-                            editor.putString("gambar",user.getPhotoUrl().toString());
-                            editor.putString("id",user.getUid());
-                            editor.apply();
+
+
+                            //dari class SharedPrefs
+                            sharedPrefs = SharedPrefs.getInstance(LoginActivity.this);
+                            sharedPrefs.putData("nama",user.getDisplayName());
+                            sharedPrefs.putData("email",user.getEmail());
+                            sharedPrefs.putData("gambar",user.getPhotoUrl().toString());
+                            sharedPrefs.putData("id",user.getUid());
+
 
                             // Untuk kirim data ke MainActivity.java
                             Intent i = new Intent(LoginActivity.this,MainActivity.class);
-//                            i.putExtra("nama",user.getDisplayName());
-//                            i.putExtra("email",user.getEmail());
                             i.putExtra("gambar",user.getPhotoUrl().toString());
-//                            i.putExtra("id",user.getUid());
                             startActivity(i);
                             finish();
                         }
