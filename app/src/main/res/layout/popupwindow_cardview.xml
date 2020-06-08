@@ -35,7 +35,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Kanon Kanade"
+                        android:text="@string/kanon_kanade"
                         android:textColor="@color/TextColor"
                         android:textSize="16sp" />
 
@@ -44,7 +44,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
-                        android:text="kanonkanade@naver.jp"
+                        android:text="@string/kanonkanade_naver_jp"
                         android:textColor="@color/Light"
                         android:textSize="12sp" />
 
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Account Settings"
+                    android:text="@string/account_settings"
                     android:textColor="@color/TextColor"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Logout"
+                    android:text="@string/logout"
                     android:textColor="@color/TextColor"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -158,7 +158,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Privacy Policy"
+                    android:text="@string/privacy_policy"
                     android:textColor="@color/Light"
                     android:textSize="12sp" />
 
@@ -168,7 +168,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text=" Terms of Services"
+                    android:text="@string/terms_of_services"
                     android:textColor="@color/Light"
                     android:textSize="12sp" />
 

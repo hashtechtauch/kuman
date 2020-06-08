@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
                 android:gravity="center"
-                android:text="Home"
+                android:text="@string/home"
                 android:textColor="@color/White"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="New Case"
+                    android:text="@string/new_case"
                     android:textColor="@color/InfoTextColor"
                     android:textSize="14sp" />
 
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Confirmed"
+                    android:text="@string/confirmed"
                     android:textColor="@color/InfoTextColor"
                     android:textSize="14sp" />
 
@@ -164,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Recovered"
+                    android:text="@string/recovered"
                     android:textColor="@color/InfoTextColor"
                     android:textSize="14sp" />
 
@@ -196,7 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Deaths"
+                    android:text="@string/deaths"
                     android:textColor="@color/InfoTextColor"
                     android:textSize="14sp" />
 
@@ -220,7 +220,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
-            android:text="COVID-19 Update"
+            android:text="@string/covid_19_update"
             android:textColor="@color/TextColor"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/tvLayout"
@@ -249,6 +249,8 @@
         app:layout_constraintTop_toBottomOf="@id/covidLayout"
         app:layout_constraintBottom_toTopOf="@id/scanLayout">
 
+
+        <!--TODO-->
         <LinearLayout
             android:id="@+id/scanHandLayout"
             android:layout_width="wrap_content"
@@ -270,7 +272,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Scan Hand"
+                android:text="@string/scan_hand"
                 android:textColor="@color/BoxTextColor"
                 android:textSize="14sp"/>
 
@@ -297,7 +299,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Wash Hand"
+                android:text="@string/wash_hand"
                 android:textColor="@color/BoxTextColor"
                 android:textSize="14sp"/>
 
@@ -324,7 +326,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Leaderboard"
+                android:text="@string/leaderboard"
                 android:textColor="@color/BoxTextColor"
                 android:textSize="14sp"/>
 
@@ -347,6 +349,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/middleLayout">
 
+        <!--TODO-->
         <LinearLayout
             android:id="@+id/scanTvLayout"
             android:layout_width="match_parent"
@@ -362,7 +365,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Scan Your Hand"
+                android:text="@string/scan_your_hand"
                 android:textColor="@color/BoxTextColor"
                 android:textSize="18sp" />
 
@@ -383,7 +386,7 @@
                 android:background="@drawable/layout_bg"
                 android:backgroundTint="@color/BoxTextColor"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Scan Now"
+                android:text="@string/scan_now"
                 android:textColor="@color/ButtonTextColor"
                 android:textSize="14sp" />
 

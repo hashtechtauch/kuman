@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
-            android:text="Don't forget to wash your hands"
+            android:text="@string/don_t_forget_to_wash_your_hands"
             android:textColor="@color/TextColor"
             android:textSize="12sp" />
 

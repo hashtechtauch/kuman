@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="47dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Hi!Gin"
+        android:text="@string/hi_gin"
         android:textColor="@color/TextColor"
         android:textSize="44sp"
         app:layout_constraintBottom_toTopOf="@id/image"
