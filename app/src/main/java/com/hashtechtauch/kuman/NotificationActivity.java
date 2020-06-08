@@ -13,8 +13,11 @@ import com.hashtechtauch.kuman.Item.Notification;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 import maes.tech.intentanim.CustomIntent;
 
+=======
+>>>>>>> devV2
 public class NotificationActivity extends AppCompatActivity
 {
     ArrayList<Notification> notifications = new ArrayList<>();
@@ -36,6 +39,7 @@ public class NotificationActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(NotificationActivity.this,MainActivity.class);
                 startActivity(intent);
+<<<<<<< HEAD
                 CustomIntent.customType(NotificationActivity.this, "right-to-left");
 
                 finish();
@@ -44,6 +48,20 @@ public class NotificationActivity extends AppCompatActivity
         });
 
         btn_Delete.setOnClickListener(v -> recyclerViewNotif.removeAllViews());
+=======
+                finish();
+            }
+        });
+
+        btn_Delete.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                recyclerViewNotif.removeAllViews();
+            }
+        });
+>>>>>>> devV2
 
         //TODO: RecyclerView
 //        AdapterNotifcation adapter = new AdapterNotifcation(this,notifications);

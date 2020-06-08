@@ -1,8 +1,16 @@
 package com.hashtechtauch.kuman;
 
 import android.content.Intent;
+<<<<<<< HEAD
 import android.os.Bundle;
 import android.view.View;
+=======
+import android.content.SharedPreferences;
+import android.media.Image;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+>>>>>>> devV2
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,12 +20,19 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
+<<<<<<< HEAD
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import maes.tech.intentanim.CustomIntent;
 
+=======
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+>>>>>>> devV2
 public class AccountSettingActivity extends AppCompatActivity
 {
     private String strImage, strNama, strEmail, strId;
@@ -29,8 +44,11 @@ public class AccountSettingActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+<<<<<<< HEAD
         AtomicBoolean notificationToggle = new AtomicBoolean(true);
 
+=======
+>>>>>>> devV2
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_setting);
 
@@ -45,10 +63,13 @@ public class AccountSettingActivity extends AppCompatActivity
         ConstraintLayout btn_Toggle_Notification = findViewById(R.id.toggleNotifBtn);
         ConstraintLayout btn_Remove_SharedPrefence = findViewById(R.id.removeUserPrefsBtn);
 
+<<<<<<< HEAD
         final AppCompatImageView toggleIcon = findViewById(R.id.toggleNotifIcon);
         final TextView toggleText = findViewById(R.id.toggleNotifTv);
         final TextView toggleSubtext = findViewById(R.id.reminderTv);
 
+=======
+>>>>>>> devV2
         //dari class SharedPrefs
         sharedPrefs = SharedPrefs.getInstance(AccountSettingActivity.this);
         strNama = sharedPrefs.getData("nama","Kanon Kanade");
@@ -72,8 +93,11 @@ public class AccountSettingActivity extends AppCompatActivity
             {
                 Intent intent = new Intent(AccountSettingActivity.this, MainActivity.class);
                 startActivity(intent);
+<<<<<<< HEAD
                 CustomIntent.customType(AccountSettingActivity.this, "up-to-bottom");
 
+=======
+>>>>>>> devV2
                 finish();
             }
         });
@@ -96,6 +120,7 @@ public class AccountSettingActivity extends AppCompatActivity
             }
         });
 
+<<<<<<< HEAD
         btn_Toggle_Notification.setOnClickListener(v -> {
             if(notificationToggle.get()){
                 toggleIcon.setImageResource(R.drawable.ic_bell_off);
@@ -108,6 +133,15 @@ public class AccountSettingActivity extends AppCompatActivity
                 toggleSubtext.setText("Turn off your haand washing reminder");
             }
             notificationToggle.set(!notificationToggle.get());
+=======
+        btn_Toggle_Notification.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+
+            }
+>>>>>>> devV2
         });
 
         btn_Remove_SharedPrefence.setOnClickListener(new View.OnClickListener()

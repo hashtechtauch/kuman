@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 public class SharedPrefs
 {
+<<<<<<< HEAD
     //Biar gampang lihat datanya, gw tulis aja di sini nama-namanya
     //nama, email, gambar, id
 
@@ -14,6 +15,14 @@ public class SharedPrefs
     private SharedPrefs(Context context)
     {
         String filename = "Keys";
+=======
+    private static SharedPrefs store;
+    private SharedPreferences SP;
+    private static String filename="Keys";
+
+    private SharedPrefs(Context context)
+    {
+>>>>>>> devV2
         SP = context.getApplicationContext().getSharedPreferences(filename,0);
     }
 

@@ -7,10 +7,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/titlebar"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:background="@color/colorPrimary"
         android:paddingHorizontal="32dp"
         android:layout_height="86dp"
 
+=======
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="32dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="20dp"
+>>>>>>> devV2
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

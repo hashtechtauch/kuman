@@ -2,20 +2,31 @@ package com.hashtechtauch.kuman;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< HEAD
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.MediaController;
 import android.widget.Toast;
+=======
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.widget.MediaController;
+>>>>>>> devV2
 import android.widget.VideoView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+<<<<<<< HEAD
 import maes.tech.intentanim.CustomIntent;
 
+=======
+>>>>>>> devV2
 public class VideoPlayer extends AppCompatActivity {
 
     @Override
@@ -24,7 +35,11 @@ public class VideoPlayer extends AppCompatActivity {
         setContentView(R.layout.activity_video_player);
 
         Random randomizer = new Random();
+<<<<<<< HEAD
         List<Integer> listVideo = new ArrayList<>();
+=======
+        List<Integer> listVideo = new ArrayList<Integer>();
+>>>>>>> devV2
         listVideo.add(R.raw.babyshark);
         listVideo.add(R.raw.babyshark2);
         listVideo.add(R.raw.pikotaro);
@@ -32,6 +47,10 @@ public class VideoPlayer extends AppCompatActivity {
 
         int random = listVideo.get(randomizer.nextInt(listVideo.size()));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> devV2
         VideoView videoView = findViewById(R.id.video_view);
         String path = "android.resource://" + getPackageName() + "/" + random;
         Log.d("link",path);
@@ -42,6 +61,7 @@ public class VideoPlayer extends AppCompatActivity {
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
         videoView.start();
+<<<<<<< HEAD
         videoView.setOnCompletionListener(
                 mediaPlayer -> {
                     Toast.makeText(VideoPlayer.this, "Thank you for watching", Toast.LENGTH_LONG).show();
@@ -50,5 +70,7 @@ public class VideoPlayer extends AppCompatActivity {
                     startActivity(intent);
                 }
         );
+=======
+>>>>>>> devV2
     }
 }
