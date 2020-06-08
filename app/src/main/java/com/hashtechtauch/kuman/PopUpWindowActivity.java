@@ -13,10 +13,13 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
+import com.facebook.login.LoginManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class PopUpWindowActivity extends Activity
 {
     private String strPopNama, strPopEmail, strPopImage, strPopId;
+    SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -36,12 +39,13 @@ public class PopUpWindowActivity extends Activity
         int height = displayMetrics.heightPixels;
         getWindow().setLayout((int) (width*.9), (int) (height*.8));
 
+        //dari class SharedPrefs
+        sharedPrefs = SharedPrefs.getInstance(PopUpWindowActivity.this);
+        strPopNama = sharedPrefs.getData("nama","Kanon Kanade");
+        strPopEmail = sharedPrefs.getData("email","kanonkanade@naver.jp");
+        strPopImage = sharedPrefs.getData("gambar",null);
+        strPopId = sharedPrefs.getData("id",null);
 
-        SharedPreferences sp = getSharedPreferences("Token",MODE_PRIVATE);
-        strPopNama = sp.getString("nama",null);
-        strPopEmail = sp.getString("email",null);
-        strPopImage = sp.getString("gambar",null);
-        strPopId = sp.getString("id",null);
 
         Glide.with(this).load(strPopImage).into(popImage);
         popNama.setText(strPopNama);
@@ -63,6 +67,9 @@ public class PopUpWindowActivity extends Activity
             public void onClick(View v)
             {
                 Intent intent = new Intent(PopUpWindowActivity.this, LoginActivity.class);
+                sharedPrefs.clear();
+                FirebaseAuth.getInstance().signOut();
+                LoginManager.getInstance().logOut();
                 startActivity(intent);
                 finish();
             }
