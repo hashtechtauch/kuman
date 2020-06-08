@@ -143,14 +143,14 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
+    <!--<ScrollView
         android:layout_width="250dp"
         android:layout_height="56dp"
         android:layout_marginTop="67dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileLayout">
+        app:layout_constraintTop_toBottomOf="@+id/profileLayout">-->
 
         <TextView
             android:id="@+id/tvUserSettings"
@@ -181,7 +181,7 @@
 
             <TextView
                 android:id="@+id/changeNameTv"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:fontFamily="@font/poppins_bold"
@@ -189,9 +189,8 @@
                 android:textColor="@color/TextColor"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/changeDisplayNameTv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/changeNameIcon"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/changeNameIcon"/>
 
             <TextView
                 android:id="@+id/changeDisplayNameTv"
@@ -208,12 +207,11 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/changeNameIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginStart="24dp"
                 android:background="@drawable/ic_user"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/changeNameTv"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -235,7 +233,7 @@
 
             <TextView
                 android:id="@+id/changeLocTv"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:fontFamily="@font/poppins_bold"
@@ -243,7 +241,6 @@
                 android:textColor="@color/TextColor"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/currLocTv"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/changeLocIcon"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -279,7 +276,6 @@
                 android:layout_marginStart="24dp"
                 android:background="@drawable/ic_map_pin"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/changeLocTv"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -301,16 +297,14 @@
 
             <TextView
                 android:id="@+id/toggleNotifTv"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/toggle_notification_off"
                 android:textColor="@color/TextColor"
                 android:textSize="16sp"
-
                 app:layout_constraintBottom_toTopOf="@id/reminderTv"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/toggleNotifIcon"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -356,7 +350,7 @@
 
             <TextView
                 android:id="@+id/removeUserPrefsTv"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:fontFamily="@font/poppins_bold"
@@ -364,7 +358,6 @@
                 android:textColor="@color/TextColor"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toTopOf="@id/removeEverythingTv"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/removeUserPrefsIcon"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -394,6 +387,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+<!--    </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

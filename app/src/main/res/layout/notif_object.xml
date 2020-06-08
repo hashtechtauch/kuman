@@ -7,18 +7,18 @@
 
     <LinearLayout
         android:id="@+id/notifLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/messageDate"
         app:layout_constraintStart_toEndOf="@id/notifIcon"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/messageTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:text="Welcome Home, Kanon Kanade"
@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/message"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
             android:text="@string/don_t_forget_to_wash_your_hands"
@@ -54,8 +54,6 @@
         android:layout_marginStart="36dp"
         android:background="@drawable/ic_message"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/notifLayout"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 

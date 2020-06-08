@@ -80,14 +80,13 @@
 
                 <TextView
                     android:id="@+id/accSettingsTv"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="@string/account_settings"
                     android:textColor="@color/TextColor"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/accSettingsIcon"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,8 +97,6 @@
                     android:layout_marginStart="24dp"
                     android:background="@drawable/ic_user"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/accSettingsTv"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -116,14 +113,14 @@
 
                 <TextView
                     android:id="@+id/logoutTv"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="@string/logout"
                     android:textColor="@color/TextColor"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
+
                     app:layout_constraintStart_toEndOf="@id/logoutIcon"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -134,8 +131,6 @@
                     android:layout_marginStart="24dp"
                     android:background="@drawable/ic_log_out"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/logoutTv"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
