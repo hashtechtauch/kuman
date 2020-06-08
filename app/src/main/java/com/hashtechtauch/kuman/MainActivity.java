@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -12,12 +14,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +36,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.bumptech.glide.Glide;
+import com.facebook.login.LoginManager;
 import com.google.android.libraries.places.api.model.Place;
+import com.google.firebase.auth.FirebaseAuth;
 import com.hashtechtauch.kuman.model.Country;
 import com.rtchagas.pingplacepicker.PingPlacePicker;
 
@@ -37,12 +49,13 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity
 {
-    private String strHomeImage;
+    private String strHomeImage, strPopNama, strPopEmail, strPopImage, strPopId;
     private TextView CountryName, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered;
     private String jsonLati, jsonLong, countryCode, link;
     private final static int REQUEST_PLACE_PICKER = 1001;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -54,6 +67,8 @@ public class MainActivity extends AppCompatActivity
         AppCompatImageView btn_Home_Notif = findViewById(R.id.notifBtn);
         AppCompatButton btn_Scan = findViewById(R.id.scanBtn);
         AppCompatImageView homeProfilePicture = findViewById(R.id.image);
+
+
         CountryName = findViewById(R.id.locationTv);
         newConfirmed = findViewById(R.id.newCaseNumber);
         totalConfirmed = findViewById(R.id.ConfirmedNumber);
@@ -63,8 +78,9 @@ public class MainActivity extends AppCompatActivity
         editor = sharedPreferences.edit();
 
         //dari class LoginActivity.java
-        strHomeImage = getIntent().getStringExtra("gambar");
-        Glide.with(this).load(strHomeImage).into(homeProfilePicture);
+        sharedPrefs = SharedPrefs.getInstance(MainActivity.this);
+        strHomeImage = sharedPrefs.getData("gambar",null);
+        Glide.with(this).load(strHomeImage).into(btn_Home_Image);
 
         CountryName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,12 +101,66 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                startActivity(new Intent(MainActivity.this, PopUpWindowActivity.class));
+                LayoutInflater layoutInflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popUpView = layoutInflater.inflate(R.layout.popupwindow_cardview, null);
 
+                //membuat pop up window
+                int width = CardView.LayoutParams.WRAP_CONTENT;
+                int height = CardView.LayoutParams.WRAP_CONTENT;
+                boolean touchOutside = true;
+                final PopupWindow popupWindow = new PopupWindow(popUpView,width,height,touchOutside);
 
+                //tampilkan pop up window
+                popupWindow.showAtLocation(popUpView, Gravity.CENTER, 0, 0);
 
+                //untuk gelapkan background ketika ditap
+                View container = (View) popupWindow.getContentView().getParent();
+                WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+                WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
+                p.flags |= WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+                p.dimAmount = 0.4f;
+                windowManager.updateViewLayout(container, p);
 
+                AppCompatImageView popImage = popUpView.findViewById(R.id.popPicture);
+                TextView popNama = popUpView.findViewById(R.id.tvName);
+                TextView popEmail = popUpView.findViewById(R.id.tvEmail);
+                ConstraintLayout btn_accSetting = popUpView.findViewById(R.id.accSettingsBtn);
+                ConstraintLayout btn_Logout = popUpView.findViewById(R.id.logoutBtn);
 
+                //dari class SharedPrefs
+//                sharedPrefs = SharedPrefs.getInstance(MainActivity.this);
+                strPopNama = sharedPrefs.getData("nama","Kanon Kanade");
+                strPopEmail = sharedPrefs.getData("email","kanonkanade@naver.jp");
+                strPopImage = sharedPrefs.getData("gambar",null);
+                strPopId = sharedPrefs.getData("id",null);
+
+                Glide.with(popUpView).load(strPopImage).into(popImage);
+                popNama.setText(strPopNama);
+                popEmail.setText(strPopEmail);
+
+                btn_accSetting.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent(MainActivity.this, AccountSettingActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                btn_Logout.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        sharedPrefs.clear();
+                        FirebaseAuth.getInstance().signOut();
+                        LoginManager.getInstance().logOut();
+                        startActivity(intent);
+                        finish();
+                    }
+                });
 
             }
         });
