@@ -35,14 +35,14 @@ import org.json.JSONObject;
 
 import java.util.Objects;
 
+import io.opencensus.stats.Aggregation;
+
 public class MainActivity extends AppCompatActivity
 {
     private String strHomeImage;
-    private TextView CountryName, newConfirmed, totalConfirmed, newDeaths, totalDeaths, newRecovered, totalRecovered;
+    private TextView CountryName, newConfirmed, totalConfirmed, totalDeaths, totalRecovered;
     private String jsonLati, jsonLong, countryCode, link;
     private final static int REQUEST_PLACE_PICKER = 1001;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity
         totalConfirmed = findViewById(R.id.ConfirmedNumber);
         totalDeaths = findViewById(R.id.deathsNumber);
         totalRecovered = findViewById(R.id.recoveredNumber);
-        sharedPreferences = getSharedPreferences("Covid", Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
 
         strHomeImage = getIntent().getStringExtra("gambar");
         Glide.with(this).load(strHomeImage).into(homeProfilePicture);
@@ -77,6 +75,7 @@ public class MainActivity extends AppCompatActivity
                     showPlacePicker();
                 }
             }
+
         });
 
         btn_Home_Image.setOnClickListener(new View.OnClickListener()
@@ -103,14 +102,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
+                Intent intent = new Intent(MainActivity.this, VideoPlayer.class);
+                startActivity(intent);
             }
         });
 
-
     }
 
-    private void showPlacePicker() {
+    private void showPlacePicker() { ;
         PingPlacePicker.IntentBuilder builder = new PingPlacePicker.IntentBuilder();
         builder.setAndroidApiKey("AIzaSyCVqW4F6qEEo8YZDmHEN2K8j6D3NtTX59g")
                 .setMapsApiKey("AIzaSyA6zli3v7J1vh9sdJf30WhePFrM7RLHYuc");
@@ -141,11 +140,6 @@ public class MainActivity extends AppCompatActivity
                 jsonLong = String.valueOf(Objects.requireNonNull(place.getLatLng()).longitude);
 
                 Request(jsonLati, jsonLong);
-                CountryName.setText("Current Location : " + sharedPreferences.getString("country", ""));
-                newConfirmed.setText(sharedPreferences.getString("newConfirmed", "0"));
-                totalConfirmed.setText(sharedPreferences.getString("totalConfirmed","0"));
-                totalDeaths.setText(sharedPreferences.getString("totalDeaths","0"));
-                totalRecovered.setText(sharedPreferences.getString("totalRecovered","0"));
             }
         }
     }
@@ -209,12 +203,11 @@ public class MainActivity extends AppCompatActivity
                                     break;
                                 }
                             }
-                            editor.putString("country", CountryData.getCountry());
-                            editor.putString("newConfirmed", String.valueOf(CountryData.getNewConfirmed()));
-                            editor.putString("totalConfirmed", String.valueOf(CountryData.getTotalConfirmed()));
-                            editor.putString("totalDeaths", String.valueOf(CountryData.getTotalDeaths()));
-                            editor.putString("totalRecovered", String.valueOf(CountryData.getTotalRecovered()));
-                            editor.commit();
+                            CountryName.setText("Current Location : " + CountryData.getCountry());
+                            newConfirmed.setText(String.valueOf(CountryData.getNewConfirmed()));
+                            totalConfirmed.setText(String.valueOf(CountryData.getTotalConfirmed()));
+                            totalDeaths.setText(String.valueOf(CountryData.getTotalDeaths()));
+                            totalRecovered.setText(String.valueOf(CountryData.getTotalRecovered()));
 
                         } catch (Exception e) {
                             e.printStackTrace();
