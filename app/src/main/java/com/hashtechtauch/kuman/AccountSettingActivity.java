@@ -25,6 +25,7 @@ public class AccountSettingActivity extends AppCompatActivity
     private String jsonLati, jsonLong;
     private FirebaseFirestore mFirebaseFirestore;
     private final static int REQUEST_PLACE_PICKER = 1001;
+    SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,11 +44,14 @@ public class AccountSettingActivity extends AppCompatActivity
         ConstraintLayout btn_Toggle_Notification = findViewById(R.id.toggleNotifBtn);
         ConstraintLayout btn_Remove_SharedPrefence = findViewById(R.id.removeUserPrefsBtn);
 
-        SharedPreferences sp = getSharedPreferences("Token",MODE_PRIVATE);
-        strNama = sp.getString("nama",null);
-        strEmail = sp.getString("email",null);
-        strImage = sp.getString("gambar",null);
-        strId = sp.getString("id",null);
+
+        //dari class SharedPrefs
+        sharedPrefs = SharedPrefs.getInstance(AccountSettingActivity.this);
+        strNama = sharedPrefs.getData("nama","Kanon Kanade");
+        strEmail = sharedPrefs.getData("email","kanonkanade@naver.jp");
+        strImage = sharedPrefs.getData("gambar",null);
+        strId = sharedPrefs.getData("id",null);
+
 
         Glide.with(this).load(strImage).into(accountImage);
         accountName.setText(strNama);
@@ -96,13 +100,17 @@ public class AccountSettingActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                SharedPreferences sp = getSharedPreferences("Token", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.clear();
-                editor.apply();
-
-                Toast.makeText(AccountSettingActivity.this, "Data successfully removed.",
-                        Toast.LENGTH_SHORT).show();
+                sharedPrefs.clear();
+                if(sharedPrefs == null)
+                {
+                    Toast.makeText(AccountSettingActivity.this, "Data successfully removed.",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(AccountSettingActivity.this, "No data to be deleted.",
+                            Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
