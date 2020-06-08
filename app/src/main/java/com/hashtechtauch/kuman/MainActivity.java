@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity
                     {
                         Intent intent = new Intent(MainActivity.this, AccountSettingActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 });
 
@@ -158,6 +159,8 @@ public class MainActivity extends AppCompatActivity
                         FirebaseAuth.getInstance().signOut();
                         LoginManager.getInstance().logOut();
                         startActivity(intent);
+                        Toast.makeText(MainActivity.this, "Logout Success.",
+                                Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

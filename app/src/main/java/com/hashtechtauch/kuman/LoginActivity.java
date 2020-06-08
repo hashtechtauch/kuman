@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity
         if(user != null)
         {
             Intent i = new Intent(LoginActivity.this,MainActivity.class);
-            i.putExtra("gambar",user.getPhotoUrl().toString());
+//            i.putExtra("gambar",user.getPhotoUrl().toString());
             startActivity(i);
             finish();
         }
@@ -127,7 +127,9 @@ public class LoginActivity extends AppCompatActivity
 
                             // Untuk kirim data ke MainActivity.java
                             Intent i = new Intent(LoginActivity.this,MainActivity.class);
-                            i.putExtra("gambar",user.getPhotoUrl().toString());
+//                            i.putExtra("gambar",user.getPhotoUrl().toString());
+                            Toast.makeText(LoginActivity.this, "Login Success.",
+                                    Toast.LENGTH_SHORT).show();
                             startActivity(i);
                             finish();
                         }

@@ -44,7 +44,6 @@ public class AccountSettingActivity extends AppCompatActivity
         ConstraintLayout btn_Toggle_Notification = findViewById(R.id.toggleNotifBtn);
         ConstraintLayout btn_Remove_SharedPrefence = findViewById(R.id.removeUserPrefsBtn);
 
-
         //dari class SharedPrefs
         sharedPrefs = SharedPrefs.getInstance(AccountSettingActivity.this);
         strNama = sharedPrefs.getData("nama","Kanon Kanade");
@@ -52,10 +51,14 @@ public class AccountSettingActivity extends AppCompatActivity
         strImage = sharedPrefs.getData("gambar",null);
         strId = sharedPrefs.getData("id",null);
 
-
         Glide.with(this).load(strImage).into(accountImage);
         accountName.setText(strNama);
         accountEmail.setText(strEmail);
+
+        if(sharedPrefs != null)
+        {
+            counter.setText("0");
+        }
 
         btn_Back.setOnClickListener(new View.OnClickListener()
         {
