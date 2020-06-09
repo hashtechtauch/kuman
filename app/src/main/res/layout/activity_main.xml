@@ -41,8 +41,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/profilePicture"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:background="@drawable/ic_account_circle_black_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +63,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:elevation="4dp"
         android:id="@+id/covidLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="993"
+                    android:text="672"
                     android:textColor="@color/InfoTextColor"
                     android:textSize="18sp" />
 
@@ -142,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="30514"
+                    android:text="31186"
                     android:textColor="@color/ConfirmedNumberColor"
                     android:textSize="18sp" />
 
@@ -175,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="9907"
+                    android:text="10498"
                     android:textColor="@color/RecoveredNumberColor"
                     android:textSize="18sp" />
 
@@ -207,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="1801"
+                    android:text="1851"
                     android:textColor="@color/DeathNumberColor"
                     android:textSize="18sp" />
 
@@ -244,6 +245,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="10dp"
         android:id="@+id/middleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -260,13 +262,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/washHandLayout"
             app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/scanHandIcon"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/com_facebook_profile_picture_blank_square"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/ic_baseline_camera_enhance_24"/>
 
             <TextView
                 android:id="@+id/scanHandTv"
@@ -287,13 +290,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/leaderboardLayout"
             app:layout_constraintStart_toEndOf="@id/scanHandLayout"
+            android:gravity="center"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/washHandIcon"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/com_facebook_profile_picture_blank_square"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/ic_baseline_bathtub_24"/>
 
             <TextView
                 android:id="@+id/washHandTv"
@@ -314,13 +318,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/washHandLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/leaderboardIcon"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/com_facebook_profile_picture_blank_square"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/ic_baseline_group_24"/>
 
             <TextView
                 android:id="@+id/leaderboardTv"
@@ -337,13 +342,14 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:elevation="4dp"
         android:id="@+id/scanLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/layout_bg"
-        android:backgroundTint="@color/BoxColor"
+        android:backgroundTint="#D3D3D3"
         android:paddingHorizontal="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -374,7 +380,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Lorem ipsum kontol \nsi Achmed"
+                android:text="Yes, scan it!"
                 android:textColor="@color/BoxTextColor"
                 android:textSize="14sp" />
 
@@ -384,10 +390,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:background="@drawable/layout_bg"
-                android:backgroundTint="@color/BoxTextColor"
+                android:backgroundTint="@color/DeathNumberColor"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/scan_now"
-                android:textColor="@color/ButtonTextColor"
+                android:textColor="#ffffff"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -396,7 +402,7 @@
             android:id="@+id/image"
             android:layout_width="175dp"
             android:layout_height="149dp"
-            android:background="@drawable/com_facebook_profile_picture_blank_square"
+            android:background="@drawable/image_21"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/scanTvLayout"
             app:layout_constraintTop_toTopOf="parent" />

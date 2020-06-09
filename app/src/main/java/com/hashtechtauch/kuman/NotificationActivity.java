@@ -13,6 +13,8 @@ import com.hashtechtauch.kuman.Item.Notification;
 
 import java.util.ArrayList;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class NotificationActivity extends AppCompatActivity
 {
     ArrayList<Notification> notifications = new ArrayList<>();
@@ -35,6 +37,7 @@ public class NotificationActivity extends AppCompatActivity
                 Intent intent = new Intent(NotificationActivity.this,MainActivity.class);
                 startActivity(intent);
                 finish();
+                CustomIntent.customType(NotificationActivity.this, "right-to-left");
             }
         });
 

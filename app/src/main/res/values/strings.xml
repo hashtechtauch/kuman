@@ -33,4 +33,5 @@
     <string name="remove_user_preferences">Remove user preferences</string>
     <string name="remove_everything_from_your_account">Remove everything from your account</string>
     <string name="hi_gin">Hi!Gin</string>
+    <string name="scan">Scan</string>
 </resources>

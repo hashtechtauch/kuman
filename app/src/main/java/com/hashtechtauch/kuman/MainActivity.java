@@ -48,6 +48,7 @@ import org.json.JSONObject;
 import java.util.Objects;
 
 import io.opencensus.stats.Aggregation;
+import maes.tech.intentanim.CustomIntent;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -80,6 +81,27 @@ public class MainActivity extends AppCompatActivity
         sharedPrefs = SharedPrefs.getInstance(MainActivity.this);
         strHomeImage = sharedPrefs.getData("gambar",null);
         Glide.with(this).load(strHomeImage).into(btn_Home_Image);
+
+        LinearLayout washHandLayout = findViewById(R.id.washHandLayout);
+        LinearLayout leaderboardLayout = findViewById(R.id.leaderboardLayout);
+        LinearLayout scanHandLayout = findViewById(R.id.scanHandLayout);
+
+        washHandLayout.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, VideoPlayer.class);
+            startActivity(intent);
+        });
+
+        leaderboardLayout.setOnClickListener(view ->
+        {
+            Intent intent = new Intent(MainActivity.this, LeaderboardActivity.class);
+            startActivity(intent);
+        });
+
+        scanHandLayout.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ScanActivity.class);
+            startActivity(intent);
+        });
+
 
         CountryName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,54 +160,36 @@ public class MainActivity extends AppCompatActivity
                 popNama.setText(strPopNama);
                 popEmail.setText(strPopEmail);
 
-                btn_accSetting.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(MainActivity.this, AccountSettingActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
+                btn_accSetting.setOnClickListener(v1 -> {
+                    Intent intent = new Intent(MainActivity.this, AccountSettingActivity.class);
+                    startActivity(intent);
+                    CustomIntent.customType(MainActivity.this, "bottom-to-up");
+                    finish();
                 });
 
-                btn_Logout.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                        sharedPrefs.clear();
-                        FirebaseAuth.getInstance().signOut();
-                        LoginManager.getInstance().logOut();
-                        startActivity(intent);
-                        Toast.makeText(MainActivity.this, "Logout Success.",
-                                Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
+                btn_Logout.setOnClickListener(v2 -> {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    sharedPrefs.clear();
+                    FirebaseAuth.getInstance().signOut();
+                    LoginManager.getInstance().logOut();
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this, "Logout Success.",
+                            Toast.LENGTH_SHORT).show();
+                    finish();
                 });
 
             }
         });
 
-        btn_Home_Notif.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
-                startActivity(intent);
-            }
+        btn_Home_Notif.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+            startActivity(intent);
+            CustomIntent.customType(this, "left-to-right");
         });
 
-        btn_Scan.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(MainActivity.this, VideoPlayer.class);
-                startActivity(intent);
-            }
+        btn_Scan.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ScanActivity.class);
+            startActivity(intent);
         });
 
     }
